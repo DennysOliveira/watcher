@@ -1,0 +1,6 @@
+data.txt
+log.txt
+data.lua
+
+data/sessions/*
+data/session_index.txt

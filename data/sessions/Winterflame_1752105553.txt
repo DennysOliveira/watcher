@@ -1,0 +1,519 @@
+{
+    earnedMoney = 3.43441e+006,
+    stamps = {
+        {
+            labor = {
+                current = 6124,
+                change = -1,
+            },
+            timestamp = "1752105565",
+            gold = {
+                change = "1714853",
+                current = "22023916",
+            },
+        },
+        {
+            labor = {
+                change = -1,
+                current = 6123,
+            },
+            timestamp = "1752105566",
+            gold = {
+                current = "23738769",
+                change = "1714853",
+            },
+        },
+        {
+            labor = {
+                current = 6123,
+                change = 0,
+            },
+            timestamp = "1752105801",
+            gold = {
+                change = "26",
+                current = "23738795",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6123,
+            },
+            timestamp = "1752105818",
+            gold = {
+                current = "23738840",
+                change = "45",
+            },
+        },
+        {
+            labor = {
+                current = 6123,
+                change = 0,
+            },
+            timestamp = "1752105822",
+            gold = {
+                change = "53",
+                current = "23738893",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6123,
+            },
+            timestamp = "1752105856",
+            gold = {
+                current = "23738943",
+                change = "50",
+            },
+        },
+        {
+            labor = {
+                current = 6123,
+                change = 0,
+            },
+            timestamp = "1752105857",
+            gold = {
+                change = "49",
+                current = "23738992",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6123,
+            },
+            timestamp = "1752105868",
+            gold = {
+                current = "23739017",
+                change = "25",
+            },
+        },
+        {
+            labor = {
+                current = 6123,
+                change = 0,
+            },
+            timestamp = "1752105869",
+            gold = {
+                change = "48",
+                current = "23739065",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6123,
+            },
+            timestamp = "1752105879",
+            gold = {
+                current = "23739105",
+                change = "40",
+            },
+        },
+        {
+            labor = {
+                current = 6158,
+                change = -5,
+            },
+            timestamp = "1752105899",
+            gold = {
+                change = "0",
+                current = "23739105",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6158,
+            },
+            timestamp = "1752105901",
+            gold = {
+                current = "23739137",
+                change = "32",
+            },
+        },
+        {
+            labor = {
+                current = 6158,
+                change = 0,
+            },
+            timestamp = "1752105907",
+            gold = {
+                change = "32",
+                current = "23739169",
+            },
+        },
+        {
+            labor = {
+                change = 40,
+                current = 6198,
+            },
+            timestamp = "1752105944",
+            gold = {
+                current = "23739169",
+                change = "0",
+            },
+        },
+        {
+            labor = {
+                current = 6183,
+                change = -15,
+            },
+            timestamp = "1752105956",
+            gold = {
+                change = "0",
+                current = "23739169",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6183,
+            },
+            timestamp = "1752106034",
+            gold = {
+                current = "23739197",
+                change = "28",
+            },
+        },
+        {
+            labor = {
+                current = 6183,
+                change = 0,
+            },
+            timestamp = "1752106043",
+            gold = {
+                change = "29",
+                current = "23739226",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6183,
+            },
+            timestamp = "1752106057",
+            gold = {
+                current = "23739266",
+                change = "40",
+            },
+        },
+        {
+            labor = {
+                current = 6183,
+                change = 0,
+            },
+            timestamp = "1752106070",
+            gold = {
+                change = "23",
+                current = "23739289",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6183,
+            },
+            timestamp = "1752106085",
+            gold = {
+                current = "23739325",
+                change = "36",
+            },
+        },
+        {
+            labor = {
+                current = 6183,
+                change = 0,
+            },
+            timestamp = "1752106090",
+            gold = {
+                change = "51",
+                current = "23739376",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6183,
+            },
+            timestamp = "1752106097",
+            gold = {
+                current = "23739401",
+                change = "25",
+            },
+        },
+        {
+            labor = {
+                current = 6183,
+                change = 0,
+            },
+            timestamp = "1752106106",
+            gold = {
+                change = "50",
+                current = "23739451",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6183,
+            },
+            timestamp = "1752106133",
+            gold = {
+                current = "23739519",
+                change = "68",
+            },
+        },
+        {
+            labor = {
+                current = 6183,
+                change = 0,
+            },
+            timestamp = "1752106135",
+            gold = {
+                change = "27",
+                current = "23739546",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6183,
+            },
+            timestamp = "1752106166",
+            gold = {
+                current = "23739598",
+                change = "52",
+            },
+        },
+        {
+            labor = {
+                current = 6183,
+                change = 0,
+            },
+            timestamp = "1752106168",
+            gold = {
+                change = "92",
+                current = "23739690",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6183,
+            },
+            timestamp = "1752106169",
+            gold = {
+                current = "23739716",
+                change = "26",
+            },
+        },
+        {
+            labor = {
+                current = 6183,
+                change = 0,
+            },
+            timestamp = "1752106183",
+            gold = {
+                change = "23",
+                current = "23739739",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6183,
+            },
+            timestamp = "1752106195",
+            gold = {
+                current = "23739795",
+                change = "56",
+            },
+        },
+        {
+            labor = {
+                current = 6183,
+                change = 0,
+            },
+            timestamp = "1752106205",
+            gold = {
+                change = "33",
+                current = "23739828",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6183,
+            },
+            timestamp = "1752106211",
+            gold = {
+                current = "23739854",
+                change = "26",
+            },
+        },
+        {
+            labor = {
+                current = 6183,
+                change = 0,
+            },
+            timestamp = "1752106230",
+            gold = {
+                change = "47",
+                current = "23739901",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6183,
+            },
+            timestamp = "1752106231",
+            gold = {
+                current = "23739953",
+                change = "52",
+            },
+        },
+        {
+            labor = {
+                current = 6223,
+                change = 40,
+            },
+            timestamp = "1752106244",
+            gold = {
+                change = "0",
+                current = "23739953",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6223,
+            },
+            timestamp = "1752106253",
+            gold = {
+                current = "23740010",
+                change = "57",
+            },
+        },
+        {
+            labor = {
+                current = 6223,
+                change = 0,
+            },
+            timestamp = "1752106255",
+            gold = {
+                change = "19",
+                current = "23740029",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6223,
+            },
+            timestamp = "1752106257",
+            gold = {
+                current = "23740053",
+                change = "24",
+            },
+        },
+        {
+            labor = {
+                current = 6223,
+                change = 0,
+            },
+            timestamp = "1752106259",
+            gold = {
+                change = "25",
+                current = "23740078",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6223,
+            },
+            timestamp = "1752106265",
+            gold = {
+                current = "23740103",
+                change = "25",
+            },
+        },
+        {
+            labor = {
+                current = 6223,
+                change = 0,
+            },
+            timestamp = "1752106273",
+            gold = {
+                change = "33",
+                current = "23740136",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6223,
+            },
+            timestamp = "1752106301",
+            gold = {
+                current = "23740160",
+                change = "24",
+            },
+        },
+        {
+            labor = {
+                current = 6223,
+                change = 0,
+            },
+            timestamp = "1752106305",
+            gold = {
+                change = "91",
+                current = "23740251",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6223,
+            },
+            timestamp = "1752106313",
+            gold = {
+                current = "23740275",
+                change = "24",
+            },
+        },
+        {
+            labor = {
+                current = 6223,
+                change = 0,
+            },
+            timestamp = "1752106322",
+            gold = {
+                change = "3197",
+                current = "23743472",
+            },
+        },
+        {
+            labor = {
+                change = 0,
+                current = 6223,
+            },
+            timestamp = "1752106332",
+            gold = {
+                current = "23676573",
+                change = "-66899",
+            },
+        },
+    },
+    started = "1752105553",
+    id = "1752105553",
+    startMoney = "20309063",
+    name = "Session",
+    ended = "1752106377",
+    usedMoney = 66899,
+    earnedLabor = 80,
+    usedLabor = 22,
+}

@@ -1,0 +1,35 @@
+{
+    earnedMoney = 0,
+    stamps = {
+        {
+            labor = {
+                current = 6198,
+                change = -25,
+            },
+            timestamp = "1752106516",
+            gold = {
+                change = "-1",
+                current = "23676572",
+            },
+        },
+        {
+            labor = {
+                change = 40,
+                current = 6238,
+            },
+            timestamp = "1752106544",
+            gold = {
+                current = "23676572",
+                change = "0",
+            },
+        },
+    },
+    started = "1752106377",
+    id = "1752106377",
+    startMoney = "23676573",
+    name = "Session",
+    ended = "1752106612",
+    usedMoney = 1,
+    earnedLabor = 40,
+    usedLabor = 25,
+}

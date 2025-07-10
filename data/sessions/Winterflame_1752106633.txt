@@ -1,0 +1,57 @@
+{
+    earnedMoney = 0,
+    stamps = {
+        {
+            labor = {
+                current = 6213,
+                change = -25,
+            },
+            timestamp = "1752106677",
+            gold = {
+                change = "-1",
+                current = "23676571",
+            },
+        },
+        {
+            labor = {
+                change = -25,
+                current = 6188,
+            },
+            timestamp = "1752106696",
+            gold = {
+                current = "23676570",
+                change = "-1",
+            },
+        },
+        {
+            labor = {
+                current = 6163,
+                change = -25,
+            },
+            timestamp = "1752106713",
+            gold = {
+                change = "-1",
+                current = "23676569",
+            },
+        },
+        {
+            labor = {
+                change = -25,
+                current = 6138,
+            },
+            timestamp = "1752106726",
+            gold = {
+                current = "23676568",
+                change = "-1",
+            },
+        },
+    },
+    started = "1752106633",
+    id = "1752106633",
+    startMoney = "23676572",
+    name = "Session",
+    ended = "1752106748",
+    usedMoney = 4,
+    earnedLabor = 0,
+    usedLabor = 100,
+}
