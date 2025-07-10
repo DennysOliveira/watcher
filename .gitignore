@@ -1,6 +1,2 @@
-data.txt
-log.txt
-data.lua
-
 data/sessions/*
-data/session_index.txt
+data/sessions/session_index.txt

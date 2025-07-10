@@ -4,9 +4,9 @@ local watcherHistoryUI = require("watcher/watcher_history_ui")
 local helpers = require("watcher/helpers")
 
 local watcher_addon = {
-    name = "Watcher",
-    author = "Bardsnight",
-    version = "0.1",
+    name = "Watcher: Economy",
+    author = "Winterflame",
+    version = "1.0",
     desc = "Economy tracking, simplified."
 }
 
@@ -15,8 +15,6 @@ local watcher_addon = {
 local watcherWnd
 local playerId = api.Unit:GetUnitId('player')
 local playerInfo = api.Unit:GetUnitInfoById(playerId)
-local dataFile = "watcher_data.txt"
-local laborDataFile = playerInfo.name .. "_watcher_labor_data.txt"
 
 -- UI variables
 local bagButton
@@ -37,18 +35,20 @@ local totalPages = 1
 
 -- Session
 local session = nil
+local globalBaseSessionsDir = "watcher/data/sessions/"
+local globalIndexFile = "watcher/data/session_index.txt"
 
 -- UI
 local watcherWindowControls = {}
 
 -- Simplified data functions
 local function getCharacterSessionFile(sessId)
-    local playerSessionFilename = "watcher/data/sessions/" .. playerInfo.name .. "_" .. sessId .. ".txt"
+    local playerSessionFilename = globalBaseSessionsDir .. playerInfo.name .. "_" .. sessId .. ".txt"
     return playerSessionFilename
 end
 
 local function addSessionToIndex(sessId, name, path)
-    local indexFile = "watcher/data/session_index.txt"
+    local indexFile = "watcher/session_index.txt"
     local index = api.File:Read(indexFile)
     if type(index) ~= "table" then index = {} end
     table.insert(index, { id = sessId, name = name, path = path })
@@ -320,7 +320,7 @@ local function createButton(id, parent, text, x, y, width, height, anchor)
     local button = api.Interface:CreateWidget('button', id, parent)
     button:AddAnchor(anchor or "TOPLEFT", x, y)
     button:SetText(text)
-    local BSCBTN = {
+    local buttonSkin = {
         path = "ui/common/default.dds",
         fontColor = {
             normal = {
@@ -381,12 +381,12 @@ local function createButton(id, parent, text, x, y, width, height, anchor)
             bottom = 0,
         },
         width or 80,
-        height or 25,
+        height or 20,
         autoResize = true,
         drawableType = "ninePart",
         coordsKey = "btn",
     }
-    api.Interface:ApplyButtonSkin(bagButton, BSCBTN)
+    api.Interface:ApplyButtonSkin(button, buttonSkin)
     button:Show(true)
     return button
 end
@@ -575,7 +575,7 @@ local function getSessionEndMoney(data)
 end
 
 local function closeAllOpenSessions()
-    local indexFile = "watcher/data/session_index.txt"
+    local indexFile = "watcher/session_index.txt"
     local index = api.File:Read(indexFile)
     if type(index) ~= "table" then return end
 
@@ -589,7 +589,7 @@ local function closeAllOpenSessions()
 end
 
 local function updateUI()
-    local data = getData(laborDataFile)
+    local data = getData()
     local characterName = playerInfo.name
     
     -- Update header labels for session start and end money
@@ -717,7 +717,7 @@ local function startNewSession()
 end
 
 local function cleanupStaleSessions()
-    local indexFile = "watcher/data/session_index.txt"
+    local indexFile = "watcher/session_index.txt"
     local index = api.File:Read(indexFile)
     if type(index) ~= "table" then return end
     local newIndex = {}
@@ -849,8 +849,12 @@ end
 
 local function createMainButton()
     local bagMngr = ADDON:GetContent(UIC.BAG)
-    bagButton = createButton('bagButton', bagMngr, 'Watcher', -190, -74, 120, 25, "BOTTOMRIGHT")
-    
+    bagButton = createButton('myBagButton', bagMngr, 'Open Watcher', -180, -67, 200, 20, "BOTTOMRIGHT")
+
+    if bagButton == nil then
+        api.Log:Info("[Watcher] Could not load bag manager button.")
+    end
+
     function bagButton:OnClick() 
         toggleUI(not uiShowed)
     end

@@ -20,8 +20,13 @@
         name = "Session",
     },
     {
-        id = "1752106977",
-        path = "watcher/data/sessions/Winterflame_1752106977.txt",
+        id = "1752111405",
+        path = "watcher/data/sessions/Winterflame_1752111405.txt",
+        name = "Session",
+    },
+    {
+        id = "1752111579",
+        path = "watcher/data/sessions/Winterflame_1752111579.txt",
         name = "Session",
     },
 }

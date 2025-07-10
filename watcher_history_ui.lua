@@ -4,20 +4,20 @@ local helpers = require("watcher/helpers")
 local WINDOW = nil
 
 local paginationLabel = nil
+local indexFile = "watcher/data/session_index.txt"
 
 -- Scaffold: Read all session files and build session summaries
 local function loadAllSessionSummaries()
-    api.Log:Info("[SessionHistory] loadAllSessionSummaries: start (using session_index.txt)")
+    -- api.Log:Info("[SessionHistory] loadAllSessionSummaries: start (using session_index.txt)")
     local summaries = {}
-    local indexFile = "watcher/data/session_index.txt"
     local index = api.File:Read(indexFile)
     if not index or type(index) ~= "table" then
-        api.Log:Info("[SessionHistory] No session index found or not a table.")
+        -- api.Log:Info("[SessionHistory] No session index found or not a table.")
         return summaries
     end
-    api.Log:Info("[SessionHistory] Found " .. tostring(#index) .. " session index entries.")
+    -- api.Log:Info("[SessionHistory] Found " .. tostring(#index) .. " session index entries.")
     for _, entry in ipairs(index) do
-        api.Log:Info("[SessionHistory] Loading session file: " .. tostring(entry.path))
+        -- api.Log:Info("[SessionHistory] Loading session file: " .. tostring(entry.path))
         local sessionData = api.File:Read(entry.path)
         if sessionData then
             local first = sessionData.stamps and sessionData.stamps[1] or nil
@@ -37,10 +37,10 @@ local function loadAllSessionSummaries()
                 usedMoney = sessionData.usedMoney
             })
         else
-            api.Log:Info("[SessionHistory] Failed to load session file: " .. tostring(entry.path))
+            -- api.Log:Info("[SessionHistory] Failed to load session file: " .. tostring(entry.path))
         end
     end
-    api.Log:Info("[SessionHistory] loadAllSessionSummaries: end")
+    -- api.Log:Info("[SessionHistory] loadAllSessionSummaries: end")
     return summaries
 end
 
@@ -48,13 +48,13 @@ end
 local function formatSessionTime(started, ended)
     local function fmt(ts)
         if not ts then
-            api.Log:Info("Invalid timestamp: " .. tostring(ts))
+            -- api.Log:Info("Invalid timestamp: " .. tostring(ts))
             return "?"
         end
         -- Always pass as string
         local t = api.Time:TimeToDate(tostring(ts))
         if not t then
-            api.Log:Info("TimeToDate failed for: " .. tostring(ts))
+            -- api.Log:Info("TimeToDate failed for: " .. tostring(ts))
             return "?"
         end
         return string.format("%02d-%02d %02d:%02d",  t.day,t.month,  t.hour, t.minute)
@@ -84,10 +84,10 @@ local function drawSessionHistoryLineBackground(parent, x, y, width, height, col
 end
 
 local function showSessionHistoryWindow(currentSession)
-    api.Log:Info("[SessionHistory] showSessionHistoryWindow: start")
+    -- api.Log:Info("[SessionHistory] showSessionHistoryWindow: start")
     local windowWidth, windowHeight = 800, 600
     WINDOW = api.Interface:CreateWindow('sessionHistoryWindow', 'Session History', windowWidth, windowHeight)
-    api.Log:Info("[SessionHistory] Window created")
+    -- api.Log:Info("[SessionHistory] Window created")
     WINDOW:AddAnchor("CENTER", "UIParent", 0, 0)
     WINDOW:SetHandler("OnCloseByEsc", function() WINDOW:Show(false) end)
     function WINDOW:OnClose() WINDOW:Show(false) end
@@ -97,11 +97,11 @@ local function showSessionHistoryWindow(currentSession)
     local colWidths = {120, 100, 220, 100, 180}
     local entriesPerPage = 15
     local currentPage = 1
-    api.Log:Info("[SessionHistory] Calling loadAllSessionSummaries")
+    -- api.Log:Info("[SessionHistory] Calling loadAllSessionSummaries")
     local sessionSummaries = loadAllSessionSummaries()
     local totalEntries = #sessionSummaries
     local totalPages = math.ceil((totalEntries > 0 and totalEntries or 1) / entriesPerPage)
-    api.Log:Info("[SessionHistory] sessionSummaries loaded, totalEntries: " .. tostring(totalEntries))
+    -- api.Log:Info("[SessionHistory] sessionSummaries loaded, totalEntries: " .. tostring(totalEntries))
 
     -- Set currentPage to last page (most recent sessions)
     currentPage = totalPages
@@ -126,17 +126,17 @@ local function showSessionHistoryWindow(currentSession)
     end
 
     local function drawRows(page)
-        api.Log:Info("[SessionHistory] drawRows called for page: " .. tostring(page))
+        -- api.Log:Info("[SessionHistory] drawRows called for page: " .. tostring(page))
         clearRows()
         local startIdx = (page - 1) * entriesPerPage + 1
         local endIdx = math.min(startIdx + entriesPerPage - 1, totalEntries)
-        api.Log:Info("[SessionHistory] Drawing rows from index " .. tostring(startIdx) .. " to " .. tostring(endIdx))
+        -- api.Log:Info("[SessionHistory] Drawing rows from index " .. tostring(startIdx) .. " to " .. tostring(endIdx))
         for i = startIdx, endIdx do
             local sess = sessionSummaries[i]
             if not sess then
-                api.Log:Info("[SessionHistory] No session summary at index " .. tostring(i))
+                -- api.Log:Info("[SessionHistory] No session summary at index " .. tostring(i))
             else
-                api.Log:Info(string.format("[SessionHistory] Session %d: id=%s, startGold=%s, endGold=%s, startLabor=%s, endLabor=%s, started=%s, ended=%s", i, tostring(sess.id), tostring(sess.startGold), tostring(sess.endGold), tostring(sess.startLabor), tostring(sess.endLabor), tostring(sess.started), tostring(sess.ended)))
+                -- api.Log:Info(string.format("[SessionHistory] Session %d: id=%s, startGold=%s, endGold=%s, startLabor=%s, endLabor=%s, started=%s, ended=%s", i, tostring(sess.id), tostring(sess.startGold), tostring(sess.endGold), tostring(sess.startLabor), tostring(sess.endLabor), tostring(sess.started), tostring(sess.ended)))
             end
             local y = paddingY + 30 + ((i - startIdx) * rowHeight)
             -- Calculate gold difference and color mode
@@ -200,7 +200,7 @@ local function showSessionHistoryWindow(currentSession)
     nextButton:SetHandler("OnClick", nextButton.OnClick)
 
     -- -- Initial draw
-    api.Log:Info("[SessionHistory] Initial drawRows call")
+    -- api.Log:Info("[SessionHistory] Initial drawRows call")
     clearRows()
     drawRows(currentPage)
     updatePaginationLabel()
@@ -228,7 +228,7 @@ local function showSessionHistoryWindow(currentSession)
     ui.createLabel('overviewStatsMoneyEarned', WINDOW, 'Total Earned: ' .. helpers.formatGold(totalEarnedMoney), rightX, statsY + 44, 14)
     ui.createLabel('overviewStatsMoneyDiff', WINDOW, 'Gold Difference: ' .. goldDiffStr, rightX, statsY + 64, 14)
 
-    api.Log:Info("[SessionHistory] showSessionHistoryWindow: end")
+    -- api.Log:Info("[SessionHistory] showSessionHistoryWindow: end")
     WINDOW:Show(true)
     return WINDOW
 end

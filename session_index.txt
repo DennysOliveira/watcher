@@ -1,0 +1,7 @@
+{
+    {
+        id = "1752114317",
+        path = "watcher/data/sessions/Winterflame_1752114317.txt",
+        name = "Session",
+    },
+}
