@@ -1,8 +1,0 @@
-{
-    stamps = {
-    },
-    name = "Session",
-    started = "1752106977",
-    id = "1752106977",
-    startMoney = "28674418",
-}

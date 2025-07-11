@@ -4,4 +4,24 @@
         path = "watcher/data/sessions/Winterflame_1752114317.txt",
         name = "Session",
     },
+    {
+        id = "1752114387",
+        path = "watcher/data/sessions/Winterflame_1752114387.txt",
+        name = "Session",
+    },
+    {
+        id = "1752114461",
+        path = "watcher/data/sessions/Winterflame_1752114461.txt",
+        name = "Session",
+    },
+    {
+        id = "1752114468",
+        path = "watcher/data/sessions/Winterflame_1752114468.txt",
+        name = "Session",
+    },
+    {
+        id = "1752114493",
+        path = "watcher/data/sessions/Winterflame_1752114493.txt",
+        name = "Session",
+    },
 }

@@ -25,7 +25,7 @@ local function loadAllSessionSummaries()
             table.insert(summaries, {
                 id = entry.id,
                 name = entry.name,
-                startGold = first and first.gold and first.gold.current or sessionData.startMoney or 0,
+                startGold = sessionData.startMoney or first and first.gold and first.gold.current or 0,
                 endGold = last and last.gold and last.gold.current or sessionData.startMoney or 0,
                 startLabor = first and first.labor and first.labor.current or 0,
                 endLabor = last and last.labor and last.labor.current or 0,
@@ -173,7 +173,7 @@ local function showSessionHistoryWindow(currentSession)
         end
     end
 
-    -- -- Pagination controls
+    -- Pagination controls
     paginationLabel = ui.createLabel('paginationLabel', WINDOW, '', windowWidth/2 - 40, windowHeight - 40, 13)
     
     local function updatePaginationLabel()
@@ -204,6 +204,66 @@ local function showSessionHistoryWindow(currentSession)
     clearRows()
     drawRows(currentPage)
     updatePaginationLabel()
+
+    -- Scroll List method
+    -- local sessionList = W_CTRL.CreateScrollListBox("sessionList", WINDOW)
+    -- sessionList:SetExtent(windowWidth - 40, windowHeight - 250)
+    -- sessionList:AddAnchor("TOPLEFT", WINDOW, paddingX, paddingY + 30)
+    -- sessionList.content:UseChildStyle(true)
+    -- sessionList.content:EnableSelectParent(false)
+    -- sessionList.content:SetInset(5, 5, 8, 5)
+    -- sessionList.content.itemStyle:SetFontSize(13)
+    -- sessionList.content.childStyle:SetFontSize(13)
+    -- sessionList.content.itemStyle:SetAlign(ALIGN.LEFT)
+    -- sessionList.content:SetTreeTypeIndent(false)
+    -- sessionList.content:SetHeight(24)
+    -- sessionList.content:ShowTooltip(false)
+
+    -- -- Populate the scroll list with session summaries
+    -- local items = {}
+    -- for i, sess in ipairs(sessionSummaries) do
+    --     local goldDiff = (tonumber(sess.endGold) or 0) - (tonumber(sess.startGold) or 0)
+    --     local color = goldDiff > 0 and "positive" or (goldDiff < 0 and "negative" or "default")
+        
+    --     -- Format session ID with better spacing
+    --     local sessionId = string.format("Session #%s", sess.id or "?")
+        
+    --     -- Format gold display: Start >> End (+change)
+    --     local goldDisplay = string.format("Gold: %s >> %s", helpers.formatGold(sess.startGold), helpers.formatGold(sess.endGold))
+    --     if sess.ended then
+    --         local moneyChange = (tonumber(sess.earnedMoney or 0) - tonumber(sess.usedMoney or 0))
+    --         if moneyChange ~= 0 then
+    --             local changeStr = (moneyChange > 0 and "+" or "-") .. helpers.formatGold(math.abs(moneyChange))
+    --             goldDisplay = goldDisplay .. " (" .. changeStr .. ")"
+    --         end
+    --     end
+        
+    --     -- Format labor with ASCII
+    --     local usedLaborDisplay = sess.usedLabor and string.format("Labor: %s", tostring(sess.usedLabor)) or "Labor: 0"
+        
+    --     -- Format time with better readability
+    --     local timeDisplay = formatSessionTime(sess.started, sess.ended)
+    --     if timeDisplay == "Active" then
+    --         -- Check if this is the current session
+    --         if currentSession and sess.id == currentSession.id then
+    --             timeDisplay = "Active - Current Session"
+    --         else
+    --             timeDisplay = "Active"
+    --         end
+    --     end
+        
+    --     -- Create formatted row with proper spacing
+    --     local rowText = string.format(
+    --         "%-15s  %-35s  %-12s  %s",
+    --         sessionId,
+    --         goldDisplay,
+    --         usedLaborDisplay,
+    --         timeDisplay
+    --     )
+        
+    --     table.insert(items, { text = rowText, color = color })
+    -- end
+    -- sessionList:SetItemTrees(items)
 
     -- Add general overview statistics at the bottom
     local totalUsedLabor, totalEarnedLabor, totalUsedMoney, totalEarnedMoney = 0, 0, 0, 0

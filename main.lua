@@ -48,7 +48,7 @@ local function getCharacterSessionFile(sessId)
 end
 
 local function addSessionToIndex(sessId, name, path)
-    local indexFile = "watcher/session_index.txt"
+    local indexFile = globalIndexFile
     local index = api.File:Read(indexFile)
     if type(index) ~= "table" then index = {} end
     table.insert(index, { id = sessId, name = name, path = path })
@@ -58,6 +58,7 @@ end
 local function createSession()
     local now = api.Time:GetLocalTime()
     local startMoney = X2Util.GetMyMoneyString()
+    api.Log:Info("creteSession: startmoney" .. helpers.formatGold(startMoney))
     local newSess = {
         id = now,
         name = "Session",
@@ -557,10 +558,10 @@ end
 
 -- Calculation functions for session start and end money
 local function getSessionStartMoney(data)
-    if data and data.stamps and #data.stamps > 0 then
-        return tonumber(data.stamps[1].gold.current) or 0
-    elseif data and data.startMoney then
+    if data and data.startMoney then
         return tonumber(data.startMoney) or 0
+    elseif data and data.stamps and #data.stamps > 0 then
+            return tonumber(data.stamps[1].gold.current) or 0
     end
     return 0
 end
@@ -575,7 +576,7 @@ local function getSessionEndMoney(data)
 end
 
 local function closeAllOpenSessions()
-    local indexFile = "watcher/session_index.txt"
+    local indexFile = globalIndexFile
     local index = api.File:Read(indexFile)
     if type(index) ~= "table" then return end
 
@@ -717,7 +718,7 @@ local function startNewSession()
 end
 
 local function cleanupStaleSessions()
-    local indexFile = "watcher/session_index.txt"
+    local indexFile = globalIndexFile
     local index = api.File:Read(indexFile)
     if type(index) ~= "table" then return end
     local newIndex = {}
