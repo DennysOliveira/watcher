@@ -58,7 +58,6 @@ end
 local function createSession()
     local now = api.Time:GetLocalTime()
     local startMoney = X2Util.GetMyMoneyString()
-    api.Log:Info("creteSession: startmoney" .. helpers.formatGold(startMoney))
     local newSess = {
         id = now,
         name = "Session",
@@ -483,11 +482,9 @@ local function logTable(tbl, prefix)
 end
 
 local function drawHistoryLine(baseId, parent, i, first, stamp, x, y)
-    -- api.Log:Info("drawHistoryLine called for index " .. tostring(i) .. ", stamp:")
     if type(stamp) == "table" then
         logTable(stamp, "  ")
     else
-        -- api.Log:Info("  (not a table): " .. tostring(stamp))
     end
     local controls = {}
     local winWidth = 570 -- assuming window width is 600, minus some padding
